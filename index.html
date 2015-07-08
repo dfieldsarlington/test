@@ -13,7 +13,7 @@
 		d3.select("#test").selectAll("p")
             .data(dataset)
             .enter()
-            .append("p")
+            .append("div")
 			.attr("class", "bar1")
             .text(function(d) {
 			 return d;});
