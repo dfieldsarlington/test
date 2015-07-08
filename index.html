@@ -15,7 +15,8 @@
          .append("div")
          .attr("class", "bar1")
 		 .style("height", function(d) {
-         return d + "px";
+         var barHeight = d * 5;  //Scale up by factor of 5
+         return barHeight + "px";
          });
      </script>
     </body>
