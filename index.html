@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>D3 Page Template</title>
+        <title>Test Data</title>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">	
     </head>
@@ -14,7 +14,8 @@
             .data(dataset)
             .enter()
             .append("p")
-            .text("New paragraph!");
+            .text(function(d) {
+			 return d;});
         </script>
     </body>
 </html>
