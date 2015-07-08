@@ -21,7 +21,11 @@ div.bar1 {
          .enter()
          .append("div")
          .attr("class", "bar1");
-		 
+		 .style("height", function(d) {
+         return d + "px";
+         });
+		
      </script>
+	 <div style="height: 75px;"></div>
     </body>
 </html>
