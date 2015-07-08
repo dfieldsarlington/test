@@ -10,8 +10,7 @@ div.bar1 {
     display: inline-block;
     width: 20px;
     height: 75px;   /* We'll override height later */
-    background-color: blue;
-</style>	
+    background-color: steel blue;		
     </head>
     <body>
 	 <script type="text/javascript">
@@ -20,12 +19,11 @@ div.bar1 {
          .data(dataset)
          .enter()
          .append("div")
-         .attr("class", "bar1");
+         .attr("class", "bar1")
 		 .style("height", function(d) {
          return d + "px";
          });
-		
+		 
      </script>
-	 <div style="height: 75px;"></div>
     </body>
 </html>
