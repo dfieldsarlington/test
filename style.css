@@ -5,3 +5,10 @@
             margin-top: 10px;
             padding: 2px;
             margin-left: 2px;
+			
+div.bar1 {
+    display: inline-block;
+    width: 20px;
+    height: 75px;   /* We'll override height later */
+    background-color: steel blue;
+}

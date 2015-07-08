@@ -14,8 +14,9 @@
             .data(dataset)
             .enter()
             .append("p")
+			.attr("class", "bar1")
             .text(function(d) {
-			 return "I know how many numbers" +d;});
+			 return d;});
         </script>
     </body>
 </html>
