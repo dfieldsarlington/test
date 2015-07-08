@@ -12,6 +12,9 @@
             d3.select("#test")
 			  .append("p")
 			  .text("New paragraph!");
+			d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/population.csv", function(data) {
+			  console.log(data);
+			  });
         </script>
     </body>
 </html>
