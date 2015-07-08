@@ -10,5 +10,5 @@ div.bar1 {
     display: inline-block;
     width: 20px;
     height: 75px;   /* We'll override height later */
-    background-color: steel blue;
+    background-color: blue;
 }
