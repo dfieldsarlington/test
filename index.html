@@ -30,6 +30,7 @@
 	 //Width and height
 		var w = 500;
 		var h = 100;
+		var barPadding = 1; 
 			
 			//create dataset
 			var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
@@ -45,10 +46,12 @@
 			   .enter()
 			   .append("rect")
 			   .attr("x", function(d, i) {
-				return i * (w / dataset.length);
+				return i * (w / dataset.length)
 				})
-			   .attr("y", 0)
-			   .attr("width", 20)
+			   .attr("y", function(d) {
+				return h - d;  //Height minus data value
+				})
+			   .attr("width", w / dataset.length - barPadding)
 			   .attr("height", 100);
 		</script>
 		
