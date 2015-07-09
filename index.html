@@ -22,7 +22,8 @@
 	    </style>	
     </head>
     <body>
-	 <script type="text/javascript">
+		<div id ="#block">	 
+		<script type="text/javascript">
 	 //Width and height
 var w = 500;
 var h = 100;
@@ -31,7 +32,7 @@ var h = 100;
 			var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
                 11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
 
-d3.select("#block").selectAll("div")
+d3.select("body").selectAll("div")
     .data(dataset)
     .enter()
     .append("div")
@@ -41,6 +42,6 @@ d3.select("#block").selectAll("div")
         return barHeight + "px";
     });
 		</script>
-		<div id ="#block"></div>
+		</div>
     </body>
 </html>
