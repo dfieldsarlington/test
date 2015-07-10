@@ -17,8 +17,8 @@
 		 #block {
 		 width: 600px;
          height: 150px;
-         border-style: solid;
-		 border-width: 5px;
+         border-style: dotted;
+		 border-width: 2px;
 		 border-color: red;
 		 }
 	    </style>	
@@ -34,7 +34,7 @@
 			
 			//create dataset
 			var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
-                11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
+                11, 12, 15, 20, 18, 17, 16, 18, 23, 25, 40, 2 ];
 
 		var svg = d3.select("#block")
 					.append("svg")
@@ -52,7 +52,9 @@
 				return h - d;  //Height minus data value
 				})
 			   .attr("width", w / dataset.length - barPadding)
-			   .attr("height", 100);
+			   .attr("height", function(d) {
+				return d * 4;  // <-- Times four!
+				});
 		</script>
 		
     </body>
