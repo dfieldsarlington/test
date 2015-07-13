@@ -67,7 +67,7 @@ form {
 				
 			//Set up groups
 			var arcs = svg.selectAll("g.arc")
-						  .data(pie(dataset))
+						  .data(pie(dataset.raceyear))
 						  .enter()
 						  .append("g")
 						  .attr("class", "arc")
