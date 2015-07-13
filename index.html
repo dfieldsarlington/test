@@ -57,7 +57,8 @@ form {
 						.append("svg")
 						.attr("width", w)
 						.attr("height", h);
-			d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/data.csv", type, function(error, data))
+			
+			d3.csv("data.csv", type, function(error, data))
 			
 			//Separte by keys
 			var data=d3.nest()
