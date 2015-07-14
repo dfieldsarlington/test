@@ -94,7 +94,7 @@ body {
       var BarChartAxis = BarChart.addMeasureAxis("x", "people");
 	  BarChartAxis.overrideMin = -4500;
 	  BarChartAxis.overrideMax = 4500;
-	  
+	  x.addOrderRule("BarChartAxis");
       var y = BarChart.addCategoryAxis("y", "age");
       y.addOrderRule("Date");
       BarChart.addSeries("sex", dimple.plot.bar);
