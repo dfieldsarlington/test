@@ -94,9 +94,9 @@ body {
       var BarChartAxis = BarChart.addMeasureAxis("x", "people");
 	  BarChartAxis.overrideMin = -4500;
 	  BarChartAxis.overrideMax = 4500;
-      var y = BarChart.addCategoryAxis("y", "age");
+      var y = BarChart.addCategoryAxis("y", "age", "desc");
       y.addOrderRule("Date");
-	  y.addOrderRule(ordering, desc)
+	 
       BarChart.addSeries("sex", dimple.plot.bar);
       BarChart.addLegend(60, 10, 510, 20, "right");
       BarChart.setStoryboard("year");
