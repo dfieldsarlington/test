@@ -28,7 +28,8 @@ body {
 </head>
 <body>
 
-<div id="PieChart">
+<div id="PieChart"></div>
+<div id="BarChart"></div>
   <script type="text/javascript">
     var svg = dimple.newSvg("#PieChart", 590, 400);
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
@@ -82,8 +83,8 @@ body {
 		  
       });
   </script>
-</div>
-<div id="BarChart">
+
+
   <script type="text/javascript">
         var svg = dimple.newSvg("#BarChart", 590, 400);
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/pyramid.csv", function (data) {
@@ -91,8 +92,9 @@ body {
 	  var BarChart = new dimple.chart(svg, data);
       BarChart.setBounds(75, 30, 480, 330)
       var BarChartAxis = BarChart.addMeasureAxis("x", "people");
-	  BarChartAxis.overrideMin = -5000;
-	  BarChartAxis.overrideMax = 5000;
+	  BarChartAxis.overrideMin = -4500;
+	  BarChartAxis.overrideMax = 4500;
+	  BarChartAxis.tickFormat = "%";
       var y = BarChart.addCategoryAxis("y", "age");
       y.addOrderRule("Date");
       BarChart.addSeries("sex", dimple.plot.bar);
@@ -101,6 +103,6 @@ body {
 	  BarChart.draw();
     });
   </script>
-</div>
+
 </body>
 </html>
