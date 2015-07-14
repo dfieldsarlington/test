@@ -86,10 +86,10 @@ body {
 
 
   <script type="text/javascript">
-        var svg = dimple.newSvg("#BarChart", 590, 400);
+        var svgBar = dimple.newSvg("#BarChart", 590, 400);
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/pyramid.csv", function (data) {
       dimple.filterData(data, "year", "1960");
-	  var BarChart = new dimple.chart(svg, data);
+	  var BarChart = new dimple.chart(svgBar, data);
       BarChart.setBounds(75, 30, 480, 330)
       var BarChartAxis = BarChart.addMeasureAxis("x", "people");
 	  BarChartAxis.overrideMin = -4500;
