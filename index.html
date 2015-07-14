@@ -19,10 +19,10 @@
   <script src="/lib/d3.v3.4.8.js"></script>
   <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
   <script type="text/javascript">
-    var svg = dimple.newSvg("#PieChart", 400, 400);
+    var svg = dimple.newSvg("#PieChart", 300, 300);
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
       var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(10, 10, 400, 400)
+      myChart.setBounds(20, 20, 460, 360)
       myChart.addMeasureAxis("p", "Race Percent");
       var ring = myChart.addSeries("Race", dimple.plot.pie);
       ring.innerRadius = "50%";
