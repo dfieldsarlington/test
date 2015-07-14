@@ -24,7 +24,7 @@
       var PieChart = new dimple.chart(svg, data);
       PieChart.setBounds(10, 20, 460, 360)
       PieChart.addMeasureAxis("p", "Race Percent");
-      var ring = myChart.addSeries("Race", dimple.plot.pie);
+      var ring = PieChart.addSeries("Race", dimple.plot.pie);
       ring.innerRadius = "50%";
       PieChart.addLegend(500, 20, 90, 300, "right");
       PieChart.setStoryboard("Race Year");
