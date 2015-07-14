@@ -8,7 +8,7 @@
 #PieChart {    
 	position:absolute;
 	top:10px;
-	left:10px;
+	left:110px;
 	width:400px;
 	height: 400px; 
 }
@@ -19,7 +19,7 @@
   <script src="/lib/d3.v3.4.8.js"></script>
   <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
   <script type="text/javascript">
-    var svg = dimple.newSvg("#PieChart", 300, 300);
+    var svg = dimple.newSvg("#PieChart", 590, 400);
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
       var myChart = new dimple.chart(svg, data);
       myChart.setBounds(20, 20, 460, 360)
