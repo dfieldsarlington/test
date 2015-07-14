@@ -22,11 +22,11 @@
     var svg = dimple.newSvg("#PieChart", 590, 400);
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
       var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(40, 20, 460, 360)
+      myChart.setBounds(10, 20, 460, 360)
       myChart.addMeasureAxis("p", "Race Percent");
       var ring = myChart.addSeries("Race", dimple.plot.pie);
       ring.innerRadius = "50%";
-      myChart.addLegend(500, 20, 90, 300, "left");
+      myChart.addLegend(500, 20, 90, 300, "right");
       myChart.setStoryboard("Race Year");
 	  myChart.draw();
     });
