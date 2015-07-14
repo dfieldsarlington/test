@@ -22,7 +22,7 @@
     var svg = dimple.newSvg("#PieChart");
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
       var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(20, 20, 460, 360)
+      myChart.setBounds(10, 10, 400, 400)
       myChart.addMeasureAxis("p", "Race Percent");
       var ring = myChart.addSeries("Race", dimple.plot.pie);
       ring.innerRadius = "50%";
