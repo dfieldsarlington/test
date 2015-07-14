@@ -90,7 +90,8 @@ body {
       dimple.filterData(data, "year", "1960");
 	  var BarChart = new dimple.chart(svg, data);
       BarChart.setBounds(75, 30, 480, 330)
-      BarChart.addMeasureAxis("x", "people");
+      var BarChartAxis = BarChart.addMeasureAxis("x", "people");
+	  BarChartAxis.overrideMax = 4000;
       var y = BarChart.addCategoryAxis("y", "age");
       y.addOrderRule("Date");
       BarChart.addSeries("sex", dimple.plot.bar);
