@@ -1,29 +1,29 @@
-raceyear,race,racepeople
-1960,White,49824
-1960,African American,39
-1960,Other,90
-1970,White,53002
-1970,African American,164
-1970,Native American,16
-1970,Asian or Pacific Islander,277
-1970,Other,65
-1980,White,46954
-1980,African American,272
-1980,Native American,32
-1980,Asian or Pacific Islander,704
-1980,Other,257
-1990,White,42485
-1990,African American,598
-1990,Native American,33
-1990,Asian or Pacific Islander,1351
-1990,Other,163
-2000,White,38561
-2000,African American,719
-2000,Native American,57
-2000,Asian or Pacific Islander,2113
-2000,Other,939
-2010,White,36717
-2010,African American,1040
-2010,Native American,49
-2010,Asian or Pacific Islander,3558
-2010,Other,1480
+Race Year,Race,Race %,racepeople
+1960,White,99.7,49824
+1960,African American,0.1,39
+1960,Other,0.2,90
+1970,White,99.0,53002
+1970,African American,0.3,164
+1970,Native American,0.0,16
+1970,Asian or Pacific Islander,0.5,277
+1970,Other,0.1,65
+1980,White,97.4,46954
+1980,African American,0.6,272
+1980,Native American,0.1,32
+1980,Asian or Pacific Islander,1.5,704
+1980,Other,0.5,257
+1990,White,95.2,42485
+1990,African American,1.3,598
+1990,Native American,0.1,33
+1990,Asian or Pacific Islander,3.0,1351
+1990,Other,0.4,163
+2000,White,91.0,38561
+2000,African American,1.7,719
+2000,Native American,0.1,57
+2000,Asian or Pacific Islander,5.0,2113
+2000,Other,2.2,939
+2010,White,85.7,36717
+2010,African American,2.4,1040
+2010,Native American,0.1,49
+2010,Asian or Pacific Islander,8.3,3558
+2010,Other,3.5,1480

@@ -11,14 +11,14 @@
   <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
   <script type="text/javascript">
     var svg = dimple.newSvg("#chartContainer", 590, 400);
-    d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/data.csv", function (data) {
+    d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/population.csv", function (data) {
       var myChart = new dimple.chart(svg, data);
       myChart.setBounds(20, 20, 460, 360)
-      myChart.addMeasureAxis("p", "racepeople");
-      var ring = myChart.addSeries("race", dimple.plot.pie);
+      myChart.addMeasureAxis("p", "Race %");
+      var ring = myChart.addSeries("Race", dimple.plot.pie);
       ring.innerRadius = "50%";
       myChart.addLegend(500, 20, 90, 300, "left");
-      myChart.setStoryboard("raceyear");
+      myChart.setStoryboard("Race Year");
 	  myChart.draw();
     });
   </script>
