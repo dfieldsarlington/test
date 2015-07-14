@@ -82,14 +82,16 @@
   <script type="text/javascript">
         var svg = dimple.newSvg("#BarChart", 590, 400);
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/pyramid.csv", function (data) {
-      var BarChart = new dimple.chart(svg, data);
+      dimple.filterData(data, "year", "1960");
+	  var BarChart = new dimple.chart(svg, data);
       BarChart.setBounds(75, 30, 480, 330)
       BarChart.addMeasureAxis("x", "people");
-      var y = BarChart.addCategoryAxis("y", "year");
+      var y = BarChart.addCategoryAxis("y", "age");
       y.addOrderRule("Date");
       BarChart.addSeries("sex", dimple.plot.bar);
       BarChart.addLegend(60, 10, 510, 20, "right");
-      BarChart.draw();
+      BarChart.setStoryboard("year");
+	  BarChart.draw();
     });
   </script>
 </div>
