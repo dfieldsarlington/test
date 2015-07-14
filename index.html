@@ -32,7 +32,7 @@
         // means it will not respond to graph updates.  Without this the legend
         // will redraw when the chart refreshes removing the unchecked item and
         // also dropping the events we define below.
-        PieChart.legend = [];
+        PieChart.legends = [];
 
         // Get a unique list of values to use when filtering
         var filterValues = dimple.getUniqueValues(data, "Race");
