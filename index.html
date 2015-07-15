@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
 <style>
@@ -27,7 +28,109 @@ body {
 </style>
 </head>
 <body>
+        <div id="nav">
+        <div id="map"><a href="http://arcg.is/1FXpz9I" target="_blank">Map 1.1 Population Density</a></div>
+        <div id="pop">Population Density</div>
+        <div id="pane">Arlington is divided into eight census tracts: small areas delineated for statistical purposes in order to track and report demographic change. Census tracts are intended to be stable and fairly permanent, but the boundaries sometimes change due to significant population growth or change in one part of town. Due to the land area and number of residents in each tract in Arlington, population density varies through the town.</div>
+        <div id="pop2">Population Age</div>
+        <div id="pane2">From 2000 to 2010, the median population age increased from 39.5 to 41.7 years. Arlington’s population is somewhat older than that of most nearby urban communities and the state as a whole, but younger than the populations of neighboring Lexington and Winchester. The most significant population increases occurred among people between 45 and 64 years (the Baby Boomers), those 85 and over, and preschool and school-age children. Population losses occurred among people between 20 and 34 years. Today, the “over-55” age cohort accounts for 28 percent of Arlington’s total population. The number of seniors is expected to increase more dramatically, as is the case just about everywhere.</div>
+		<div id="pop3">Figure 1 Population Change</div>
+        </div>
+        <p><strong>Who Lives in Arlington?</strong><br>
+        Arlington was settled in the mid-1600s and its population grew slowly until the late nineteenth century. Between 1870 and 1920, Arlington’s population increased six-fold, from 3,261 to 18,665,and it would double again between 1920 and 1930. The population peaked at 53,524 during the 1970s. &nbsp;According to the Massachusetts State Data Center(University of Massachusetts, Donohue Institute), Arlington’s population will increase 9.2 percent between 2010 and 2030, and most neighboring communities will gain population as well. However,absolute population growth or decline will not matter as much as the dramatic increase in older residents that is happening throughout Arlington’s region.The make-up of Arlington’s population and households will continue to change in terms of population age, household sizes, and household wealth.<br>
+        Arlington’s population is increasing at the elder and youngster ends of the age spectrum and the town is&nbsp;experiencing population turnover.&nbsp;Over 62 percent of householders in Arlington today were not here in the year 2000. &nbsp;Part of the reason for this is an influx of young families with school-age children <a href="/Home/ShowImage?id=4186" target="_self">(see Table 2.3)</a>.</p>
+         <script> 
+  $(document).ready(function(){
+    $("#pop").click(function(){
+        $("#pane").slideToggle("slow");
+        });
+      });
+  $(document).ready(function(){
+    $("#pop2").click(function(){
+        $("#pane2").slideToggle("slow");
+        });
+      });
+	  $(document).ready(function(){
+    $("#pop3").click(function(){
+        $("#pane3").slideToggle("slow");
+        });
+      });
+   </script>
+        <style>
+            #pane, #pop {
+            padding: 2px;
+            text-align: center;
+			cursor: pointer;
+            }
+            #pane {
+            padding: 2px;
+            display: none;
+            text-align: center;
+            width: 250px;
+            margin-left: 2px;
+			cursor: pointer;
+            }
+            #pane2, #pop2 {
+            padding: 2px;
+            text-align: center;
+			cursor: pointer;
+            }
+            #pane2 {
+            padding: 2px;
+            display: none;
+            text-align: center;
+            width: 250px;
+            margin-left: 2px;
+			cursor: pointer;
+            }
+			#pane3, #pop3 {
+            padding: 2px;
+            text-align: center;
+			cursor: pointer;
+            }
+            #pane3 {
+            padding: 2px;
+            display: none;
+            text-align: center;
+            width: 600px;
+            margin-left: 2px;
+			cursor: pointer;
+            }
+            #map {
+            text-align: center;
+            }
+            #nextpage {
+            text-align: right;
+            }
+            #nav {
+            background-color: #f2dcdb;
+            border: solid 1px #c0504d;
+            float: right;
+            margin-top: 10px;
+            padding: 2px;
+            margin-left: 2px;
+       </style>
+	   <style>
+#block {
+            background-color: #FCF5DF;
+            border: solid 0px #c0504d;
+            float: right;
+            margin-top: 10px;
+            padding: 2px;
+            margin-left: 2px;
+			}
 
+.title {
+  font: 300 35px Helvetica Neue;
+  fill: #666;
+}
+
+</style>	
+<div id="pane3">
+<div id="block"></div>
+</div>
+<div id="nextpage" <a="" href="https://arlingtonma.gov/departments/planning-community-development/master-plan/test-demographics/test-demographicsii" target="_self"><a href="https://arlingtonma.gov/departments/planning-community-development/master-plan/test-demographics/test-demographicsii" target="_self">Next Page &gt;&gt;</a></div>
+       
 <div id="PieChart"></div>
 <div id="BarChart"></div>
   <script type="text/javascript">
