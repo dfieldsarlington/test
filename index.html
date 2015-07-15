@@ -35,7 +35,6 @@ body {
         <div id="pane">Arlington is divided into eight census tracts: small areas delineated for statistical purposes in order to track and report demographic change. Census tracts are intended to be stable and fairly permanent, but the boundaries sometimes change due to significant population growth or change in one part of town. Due to the land area and number of residents in each tract in Arlington, population density varies through the town.</div>
         <div id="pop2">Population Age</div>
         <div id="pane2">From 2000 to 2010, the median population age increased from 39.5 to 41.7 years. Arlington’s population is somewhat older than that of most nearby urban communities and the state as a whole, but younger than the populations of neighboring Lexington and Winchester. The most significant population increases occurred among people between 45 and 64 years (the Baby Boomers), those 85 and over, and preschool and school-age children. Population losses occurred among people between 20 and 34 years. Today, the “over-55” age cohort accounts for 28 percent of Arlington’s total population. The number of seniors is expected to increase more dramatically, as is the case just about everywhere.</div>
-		<div id="pop3">Figure 1 Population Change</div>
         </div>
         <p><strong>Who Lives in Arlington?</strong><br>
         Arlington was settled in the mid-1600s and its population grew slowly until the late nineteenth century. Between 1870 and 1920, Arlington’s population increased six-fold, from 3,261 to 18,665,and it would double again between 1920 and 1930. The population peaked at 53,524 during the 1970s. &nbsp;According to the Massachusetts State Data Center(University of Massachusetts, Donohue Institute), Arlington’s population will increase 9.2 percent between 2010 and 2030, and most neighboring communities will gain population as well. However,absolute population growth or decline will not matter as much as the dramatic increase in older residents that is happening throughout Arlington’s region.The make-up of Arlington’s population and households will continue to change in terms of population age, household sizes, and household wealth.<br>
@@ -127,9 +126,6 @@ body {
 }
 
 </style>	
-<div id="pane3">
-<div id="block"></div>
-</div>
 <div id="nextpage" <a="" href="https://arlingtonma.gov/departments/planning-community-development/master-plan/test-demographics/test-demographicsii" target="_self"><a href="https://arlingtonma.gov/departments/planning-community-development/master-plan/test-demographics/test-demographicsii" target="_self">Next Page &gt;&gt;</a></div>
        
 <div id="PieChart"></div>
@@ -139,7 +135,7 @@ body {
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
       dimple.filterData(data, "Race Year", "1960");
 	  var PieChart = new dimple.chart(svgPie, data);
-      PieChart.setBounds(10, 20, 460, 360)
+      PieChart.setBounds(100%, 100%)
       PieChart.addMeasureAxis("p", "Race Percent");
       var ring = PieChart.addSeries("Race", dimple.plot.pie);
       ring.innerRadius = "50%";
