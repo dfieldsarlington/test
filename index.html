@@ -135,11 +135,12 @@ p {
 <div id="PieChart"></div>
 <div id="BarChart"></div>
   <script type="text/javascript">
-    var svgPie = dimple.newSvg("#PieChart", 590, 400);
+    var svg = dimple.newSvg("#PieChart", "100%", "100%");
+	var svgPie;
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
-      dimple.filterData(data, "Race Year", "1960");
-	  var PieChart = new dimple.chart(svgPie, data);
-      PieChart.setBounds(10, 20, 460, 360)
+	  PieChart = new dimple.chart(svgPie, data, 100%, 100%);
+	  dimple.filterData(data, "Race Year", "1960");
+      PieChart.setMargins("60px", "30px", "110px", "70px");
       PieChart.addMeasureAxis("p", "Race Percent");
       var ring = PieChart.addSeries("Race", dimple.plot.pie);
       ring.innerRadius = "50%";
