@@ -135,7 +135,7 @@ p {
 <div id="PieChart"></div>
 <div id="BarChart"></div>
   <script type="text/javascript">
-    var svgPie = dimple.newSvg("#PieChart", 80%, 400);
+    var svgPie = dimple.newSvg("#PieChart", 80%, 80%);
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
       dimple.filterData(data, "Race Year", "1960");
 	  var PieChart = new dimple.chart(svgPie, data);
@@ -146,7 +146,6 @@ p {
       var PieLegend = PieChart.addLegend(530, 100, 60, 300, "Right");
       PieChart.setStoryboard("Race Year");
 	  PieChart.draw();
-	  
    // This is a critical step.  By doing this we orphan the legend. This
         // means it will not respond to graph updates.  Without this the legend
         // will redraw when the chart refreshes removing the unchecked item and
