@@ -21,10 +21,20 @@ p {
 	float: left;
 	top:10px;
 	left:10px;
-	width:33%;
-	height: 33%;
+	width:35%;
+	height:400px;
 	background-color: rgb(252,245,223);
 }
+
+#income {    
+	float: right;
+	top:10px;
+	left:10px;
+	width:35%;
+	height:400px;
+	background-color: rgb(252,245,223);
+}	
+
 #BarChart {    
 	float: right;
 	top:10px;
@@ -135,18 +145,22 @@ p {
 <div id="PieChart"></div>
 <div id="BarChart"></div>
   <script type="text/javascript">
-    var svgPie = dimple.newSvg("#PieChart", 590, 400);
-    d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
-      dimple.filterData(data, "Race Year", "1960");
-	  var PieChart = new dimple.chart(svgPie, data);
-      PieChart.setBounds(10, 20, 460, 360)
-      PieChart.addMeasureAxis("p", "Race Percent");
-      var ring = PieChart.addSeries("Race", dimple.plot.pie);
-      ring.innerRadius = "50%";
-      var PieLegend = PieChart.addLegend(530, 100, 60, 300, "Right");
-      PieChart.setStoryboard("Race Year");
-	  PieChart.draw();
-   // This is a critical step.  By doing this we orphan the legend. This
+var svgPie = dimple.newSvg("#PieChart", "80%", "100%");
+		var PieChart;
+            d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/race.csv", function (data) {
+		dimple.filterData(data, "Race Year", "1960");
+		var PieChart = new dimple.chart(svgPie, data);
+	
+		PieChart.addMeasureAxis("p", "Race Percent");
+		var ring = PieChart.addSeries("Race", dimple.plot.pie);
+		ring.innerRadius = "50%";
+		
+		var PieLegend = PieChart.addLegend (300, 20, 90, 300, "left");
+		// Create a storyboard for Race Year
+		var PieStoryboard = PieChart.setStoryboard("Race");
+		PieStoryboard.categoryFields = ["Race Year"];
+		PieChart.draw();
+         // This is a critical step.  By doing this we orphan the legend. This
         // means it will not respond to graph updates.  Without this the legend
         // will redraw when the chart refreshes removing the unchecked item and
         // also dropping the events we define below.
