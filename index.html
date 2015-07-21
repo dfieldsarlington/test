@@ -204,7 +204,7 @@ var svgPie = dimple.newSvg("#PieChart", "80%", "100%");
 
 
   <script type="text/javascript">
-        var svgBar = dimple.newSvg("#BarChart", 80%, 100%);
+        var svgBar = dimple.newSvg("#BarChart", "80%", "100%");
     d3.csv("https://raw.githubusercontent.com/dfieldsarlington/test/gh-pages/pyramid.csv", function (data) {
       dimple.filterData(data, "year", "1960");
 	  var BarChart = new dimple.chart(svgBar, data);
