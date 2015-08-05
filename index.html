@@ -73,16 +73,7 @@ p {
 		var PieStoryboard = PieChart.setStoryboard("Race");
 		PieStoryboard.categoryFields = ["Race Year"];
 		PieChart.draw();
-		// Add a title with d3
-		svg.append("text")
-   .attr("PieChart", c._xPixels() + c._widthPixels() / 2)
-   .attr("PieChart", c._yPixels() - 20)
-   .style("text-anchor", "middle")
-   .style("font-family", "sans-serif")
-   .style("font-weight", "bold")
-   
-		.text("Race 1960-2010");
-        PieChart.legends = [];
+	    PieChart.legends = [];
         var filterValues = dimple.getUniqueValues(data, "Race");
         PieLegend.shapes.selectAll("rect")
           .on("click", function (e) {
@@ -234,8 +225,11 @@ var svgLine = dimple.newSvg("#LineChart", "70%", "80%");
       bars.barGap = 0.25;
       HHLineChart.assignColor("bars", "black", "black", 0.15);
       x.addOrderRule("Date");
-      HHLineChart.draw();
-	  y1.tickFormat = ",d";
+	  var LineStoryboard = LineChart.setStoryboard("Year");
+		LineStoryboard.categoryFields = [null];
+		LineChart.draw(800);
+		LineStoryboard.storyLabel.remove();
+	    y1.tickFormat = ",d";
 </script>
 </body>
 </html>
