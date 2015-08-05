@@ -225,10 +225,10 @@ var svgLine = dimple.newSvg("#LineChart", "70%", "80%");
       bars.barGap = 0.25;
       HHLineChart.assignColor("bars", "black", "black", 0.15);
       x.addOrderRule("Date");
-	  var LineStoryboard = LineChart.setStoryboard("Year");
-		LineStoryboard.categoryFields = [null];
-		LineChart.draw(800);
-		LineStoryboard.storyLabel.remove();
+	  var HHLineStoryboard = HHLineChart.setStoryboard("Year");
+		HHLineStoryboard.categoryFields = [null];
+		HHLineChart.draw(800);
+		HH.storyLabel.remove();
 	    y1.tickFormat = ",d";
 </script>
 </body>
