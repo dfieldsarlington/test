@@ -23,7 +23,6 @@ p {
 	left:10px;
 	width: 40%;
 	height: 400px;
-	background-color: rgb(252,245,223);
 	cursor: pointer;
 }
 
@@ -33,7 +32,6 @@ p {
 	left:10px;
 	width: 55%;
 	height: 400px
-	background-color: rgb(252,245,223);
 }	
 
 #HHLineChart {    
@@ -42,7 +40,6 @@ p {
 	left:10px;
 	width: 45%;
 	height: 400px
-	background-color: rgb(252,245,223);
 }
 
 #BarChart {    
@@ -50,7 +47,6 @@ p {
 	top:10px;
 	width: 60%;
 	height: 400px;
-	background-color: rgb(252,245,223);
 }
 
 </style>
@@ -66,13 +62,13 @@ p {
 		var svgPie = dimple.newSvg("#PieChart", "95%", "95%");
 		var PieChart;
             d3.csv("https://raw.githubusercontent.com/dfieldsarlington/demographics/gh-pages/race.csv", function (data) {
-		dimple.filterData(data, "Race Year", "1960");
+		dimple.filterData(data, "Race Year", [("1960", "1970", "1980", "1990", "2000", "2010")]);
 		var PieChart = new dimple.chart(svgPie, data);
 		PieChart.setBounds("5%", "5%", "75%", "80%");
 		PieChart.addMeasureAxis("p", "Race Percent");
 		var ring = PieChart.addSeries("Race", dimple.plot.pie);
 		ring.innerRadius = "50%";
-		var PieLegend = LineChart.addLegend ("90%", "70%", "10%", "90%", "left");
+		var PieLegend = PieChart.addLegend ("90%", "70%", "10%", "20%", "left");
 		PieLegend.fontSize = "auto";
 		var PieStoryboard = PieChart.setStoryboard("Race");
 		PieStoryboard.categoryFields = ["Race Year"];
