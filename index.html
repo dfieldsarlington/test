@@ -64,15 +64,24 @@ p {
             d3.csv("https://raw.githubusercontent.com/dfieldsarlington/demographics/gh-pages/race.csv", function (data) {
 		dimple.filterData(data, "Race Year", [("1960", "1970", "1980", "1990", "2000", "2010")]);
 		var PieChart = new dimple.chart(svgPie, data);
-		PieChart.setBounds("5%", "5%", "75%", "80%");
+		PieChart.setBounds("5%", "5%", "70%", "75%");
 		PieChart.addMeasureAxis("p", "Race Percent");
 		var ring = PieChart.addSeries("Race", dimple.plot.pie);
 		ring.innerRadius = "50%";
-		var PieLegend = PieChart.addLegend ("90%", "70%", "10%", "20%", "left");
+		var PieLegend = PieChart.addLegend ("80%", "70%", "10%", "20%", "left");
 		PieLegend.fontSize = "auto";
 		var PieStoryboard = PieChart.setStoryboard("Race");
 		PieStoryboard.categoryFields = ["Race Year"];
 		PieChart.draw();
+		// Add a title with d3
+		svg.append("text")
+		.attr("x", c._xPixels() + c._widthPixels() / 2)
+		.attr("y", c._yPixels() - 20)
+		.style("text-anchor", "middle")
+		.style("font-family", "Arial,Helvetica,sans-serif;")
+		.style("font: 14px")
+		.style("font-color", "#545454")
+		.text("Race 1960-2010");
         PieChart.legends = [];
         var filterValues = dimple.getUniqueValues(data, "Race");
         PieLegend.shapes.selectAll("rect")
