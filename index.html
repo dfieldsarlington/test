@@ -75,12 +75,12 @@ p {
 		PieChart.draw();
 		// Add a title with d3
 		svg.append("text")
-		.attr("x", c._xPixels() + c._widthPixels() / 2)
-		.attr("y", c._yPixels() - 20)
-		.style("text-anchor", "middle")
-		.style("font-family", "Arial,Helvetica,sans-serif;")
-		.style("font: 14px")
-		.style("font-color", "#545454")
+   .attr("x", c._xPixels() + c._widthPixels() / 2)
+   .attr("y", c._yPixels() - 20)
+   .style("text-anchor", "middle")
+   .style("font-family", "sans-serif")
+   .style("font-weight", "bold")
+   
 		.text("Race 1960-2010");
         PieChart.legends = [];
         var filterValues = dimple.getUniqueValues(data, "Race");
@@ -118,7 +118,7 @@ p {
           var indicatorColor = indicator.defaultColors[2];
           var frame = 2500;
           var firstTick = true;
-          indicator.setBounds(440, 80, 120, 200);
+          indicator.setBounds("95%", "30%", "20%", "40%");
           var y = indicator.addCategoryAxis("y", "year");
           y.addOrderRule("Date", "Desc");
           var x = indicator.addMeasureAxis("x", "age");
@@ -152,14 +152,14 @@ p {
                   .style("opacity", 0.4);
 				  
 	  var BarChart = new dimple.chart(svg, data);			  
- 
+	  BarChart.setBounds("5%", "5%", "70%", "75%");
 	  var BarChartAxis = BarChart.addMeasureAxis("x", "people");
 	  BarChartAxis.overrideMin = -4500;
 	  BarChartAxis.overrideMax = 4500;
       var y = BarChart.addCategoryAxis("y", "age");
       y.addOrderRule("age");
       BarChart.addSeries("sex", dimple.plot.bar);
-      BarChart.addLegend(150, 10, 500, 20, "left"); 
+      BarChart.addLegend("60%", "4%", "80%", "6%", "left"); 
           var story = BarChart.setStoryboard("year", onTick);
           story.frameDuration = frame;
           story.addOrderRule("Date");
