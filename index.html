@@ -29,26 +29,26 @@ body {
 //Start HHLine Chart
       var svgHHLine = dimple.newSvg("#HHLineChart", "100%", "100%");
       var data = [
-	  {"Year" : "1970",	"Number of Households" : 17626, "Average Household Size" : 3.04},
-	  {"Year" : "1980",	"Number of Households" : 18552, "Average Household Size" : 2.60},
-	  {"Year" : "1990",	"Number of Households" : 18819, "Average Household Size" : 2.37},
-	  {"Year" : "2000",	"Number of Households" : 19011, "Average Household Size" : 2.23},
-	  {"Year" : "2010",	"Number of Households" : 18969, "Average Household Size" : 2.26},
-	  {"Year" : "2020",	"Number of Households" : 19967, "Average Household Size" : 2.33},
+	  {"Year" : "1970",	"Number of Households" : 17626, "Average Household Size" : 3.04, "Metric" : "Gray"},
+	  {"Year" : "1980",	"Number of Households" : 18552, "Average Household Size" : 2.60, "Metric" : "Gray"},
+	  {"Year" : "1990",	"Number of Households" : 18819, "Average Household Size" : 2.37, "Metric" : "Gray"},
+	  {"Year" : "2000",	"Number of Households" : 19011, "Average Household Size" : 2.23, "Metric" : "Gray"},
+	  {"Year" : "2010",	"Number of Households" : 18969, "Average Household Size" : 2.26, "Metric" : "Gray"},
+	  {"Year" : "2020",	"Number of Households" : 19967, "Average Household Size" : 2.33, "Metric" : "Gray"},
 	  ];
       var HHLineChart = new dimple.chart(svgHHLine, data);
 	  HHLineChart.setBounds("10%", "10%", "72%", "75%");
-      var x = HHLineChart.addCategoryAxis("x", "Year");
+      var x = HHLineChart.addCategoryAxis("x", ["Year", "Metric"]);
       var y1 = HHLineChart.addMeasureAxis("y", "Average Household Size");
       var y2 = HHLineChart.addMeasureAxis("y", "Number of Households");
-      var bars = HHLineChart.addSeries(null, dimple.plot.bar, [x,y2]);
+      var bars = HHLineChart.addSeries("Metric", dimple.plot.bar, [x,y2]);
       var s = HHLineChart.addSeries(null, dimple.plot.line, [x, y1]);
       s.interpolation = "cardinal";
       s.lineMarkers = true;
 	  s.lineWeight = 4;
 	  s.assignColor = "red"
       bars.barGap = 0.25;
-      HHLineChart.assignColor("Number of Households",#7E969E);
+      HHLineChart.assignColor("Gray","#7E969E");
       x.addOrderRule("Date");
       HHLineChart.draw();
 	  y1.tickFormat = ",d";
