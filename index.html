@@ -38,7 +38,7 @@ body {
 	  ];
       var HHLineChart = new dimple.chart(svgHHLine, data);
 	  HHLineChart.setBounds("10%", "10%", "72%", "75%");
-      var x = HHLineChart.addCategoryAxis("x", ["Year");
+      var x = HHLineChart.addCategoryAxis("x", "Year");
       var y1 = HHLineChart.addMeasureAxis("y", "Average Household Size");
       var y2 = HHLineChart.addMeasureAxis("y", "Number of Households");
       var bars = HHLineChart.addSeries(null, dimple.plot.bar, [x,y2]);
