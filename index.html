@@ -3,8 +3,7 @@
 
 <html>
 <head>
-<title>Arlington Demographics</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<title>Arlington Household Income</title>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
 
@@ -12,53 +11,67 @@
 body {
     background-color: rgb(252,245,223);
 }
-
-#HHLineChart {    
-	float: right;
-	top:10px;
-	left:10px;
+#LineChart {    
+	float: left;
+	top:5px;
+	right:8px;
 	width: 100%;
-	height: 300px
+	height: 325px;
 	background-color: rgb(252,245,223);
 }
 </style>
 </head>
 <body>
-<div id="HHLineChart"></div>
-  <script type="text/javascript">
-//Start HHLine Chart
-      var svgHHLine = dimple.newSvg("#HHLineChart", "100%", "100%");
-      var data = [
-	  {"Year" : "1970",	"Number of Households" : 17626, "Average Household Size" : 3.04, "Metric" : "Gray"},
-	  {"Year" : "1980",	"Number of Households" : 18552, "Average Household Size" : 2.60, "Metric" : "Gray"},
-	  {"Year" : "1990",	"Number of Households" : 18819, "Average Household Size" : 2.37, "Metric" : "Gray"},
-	  {"Year" : "2000",	"Number of Households" : 19011, "Average Household Size" : 2.23, "Metric" : "Gray"},
-	  {"Year" : "2010",	"Number of Households" : 18969, "Average Household Size" : 2.26, "Metric" : "Gray"},
-	  {"Year" : "2020",	"Number of Households" : 19967, "Average Household Size" : 2.33, "Metric" : "Gray"},
-	  ];
-      var HHLineChart = new dimple.chart(svgHHLine, data);
-	  HHLineChart.setBounds("10%", "10%", "72%", "75%");
-      var x = HHLineChart.addCategoryAxis("x", "Year");
-      var y1 = HHLineChart.addMeasureAxis("y", "Average Household Size");
-      var y2 = HHLineChart.addMeasureAxis("y", "Number of Households");
-      var bars = HHLineChart.addSeries("Metric", dimple.plot.bar, [x,y2]);
-      var s = HHLineChart.addSeries(null, dimple.plot.line, [x, y1]);
+
+<div id="LineChart"></div>
+
+    <script type="text/javascript">
+//Start Line Chart
+var svgLine = dimple.newSvg("#LineChart", "92%", "95%");
+    d3.csv("https://raw.githubusercontent.com/arlingtonplanning/masterplan/master/demographics/hhincome.csv", function (data) {
+      dimple.filterData(data, "Year", ["1960", "1970", "1980", "1990", "2000", "2010", "2020"]);
+      var LineChart = new dimple.chart(svgLine, data);
+      LineChart.setBounds("15%", "5%", "65%", "75%");
+      var x = LineChart.addCategoryAxis("x", "Year");
+      x.addOrderRule("Year");
+      LineChart.addMeasureAxis("y", "Median Household Income 2015 Adjusted");
+      var s = LineChart.addSeries("Area", dimple.plot.line);
+	  s.addOrderRule("Area");
       s.interpolation = "cardinal";
       s.lineMarkers = true;
-	  s.lineWeight = 4;
-	  s.assignColor = "red"
-      bars.barGap = 0.2;
-	  bars.opacity = 0.6;
-      HHLineChart.assignColor("Gray","#7E969E");
-      x.addOrderRule("Date");
-      HHLineChart.draw();
-	  y1.tickFormat = ",d";
-      //y1.tickFormat = ",d";
-	  var HHLineStoryboard = HHLineChart.setStoryboard("Year");
-		HHLineStoryboard.categoryFields = [null];
-		HHLineChart.draw(800);
-		HHLineStoryboard.storyLabel.remove();
-    
-</script>
-</body>
-</html>
+	  s.lineWeight = 1.5;
+	  LineChart.assignColor("Arlington", "red", 1);
+      var LineLegend = LineChart.addLegend ("90%", "10%", "10%", "90%", "right");
+	  LineLegend.fontSize = "auto";
+		var LineStoryboard = LineChart.setStoryboard("Area");
+		LineStoryboard.categoryFields = [null];
+		LineChart.draw();
+		LineStoryboard.storyLabel.remove();
+        LineChart.legends = [];
+        var filterValues = dimple.getUniqueValues(data, "Area");
+        LineLegend.shapes.selectAll("rect")
+          .on("click", function (e) {
+            var hide = false;
+            var newFilters = [];
+            filterValues.forEach(function (f) {
+              if (f === e.aggField.slice(-1)[0]) {
+                hide = true;
+              } else {
+                newFilters.push(f);
+              }
+            });
+            if (hide) {
+              d3.select(this).style("opacity", 0.2);
+            } else {
+              newFilters.push(e.aggField.slice(-1)[0]);
+              d3.select(this).style("opacity", 0.8);
+            }
+            filterValues = newFilters;
+            LineChart.data = dimple.filterData(data, "Area", filterValues);
+            LineChart.draw(800);
+          });
+		  
+      });
+  </script>
+  </body>
+  </html>
